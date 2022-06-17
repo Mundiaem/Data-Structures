@@ -29,6 +29,8 @@ public class Main {
         binaryTree.preOrderTransversal(binaryTree.getRoot());
         System.out.println(" --------- PostOrder transversal ------------- ");
         binaryTree.postorderTransversal(binaryTree.getRoot());
+        System.out.println(" --------- LevelOrder transversal ------------- ");
+        binaryTree.levelOrderTransversal(binaryTree.getRoot());
 
 
 //        int x = 3, l = 0, h = arr.length;

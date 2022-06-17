@@ -1,16 +1,19 @@
 package com.practice.datastructures.tree.binarytree;
 
 /*
-* TODO
-*  1. BFS
-*  2. DFS
-*  3. Height
-*  4. Width
-*  5. Delete
-*  6. Search
-*  7. Size
-*  8. Augmenting a BST
-* */
+ * TODO
+ *  1. BFS
+ *  2. DFS
+ *  3. Height
+ *  4. Width
+ *  5. Delete
+ *  6. Search
+ *  7. Size
+ *  8. Augmenting a BST
+ * */
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinaryTree<T extends Comparable<T>> {
     Node<T> root;
@@ -56,6 +59,15 @@ public class BinaryTree<T extends Comparable<T>> {
         return root;
     }
 
+    /*
+     * Breadth First Search BFS
+     * users
+     * 1. inorder
+     * 2. preorder
+     * 3. post order
+     *  The algorithm start from the root node and then explores each branch before backtracking
+     * implemented using stack. Takes advantage of the recursion to backtrack because the left and right branches
+     * have the properties of a tree*/
     //in-order transversal l subtree ->current node > right subtree
 //from the lowest to the highest
     public void inorderTransversal(Node<T> root) {
@@ -100,6 +112,43 @@ public class BinaryTree<T extends Comparable<T>> {
         // print the current node value last
         System.out.println(" data: " + root.data);
 
+
+    }
+
+    /*
+     * Depth First Search
+     * 1. Level order
+     * uses queues
+     * The algorithm begin at the root and visit each child level by level.
+     * This means that after the root it visits it's direct children, then moves to the children's leave and so on   */
+
+    //level order
+    // uses queue to keep track of the visited nodes,
+    // After visiting the node, its children are put into the queue
+    // to ge the node to transverse with retrieve element from the queue.
+    // Algorithm
+    // 1. initialize an empty queue
+    // 2. start by setting temp as the root
+    // 3. Run Loop till the queue is not empty
+    //  print the data from the queue
+    //  enqueue the element from the left then right
+    //  dequeue a node from queue and assign value from to temp.
+    public void levelOrderTransversal(Node<T> current) {
+        Queue<Node<T>> nodeQueue = new LinkedList<>();
+        nodeQueue.add(current);
+        while (!nodeQueue.isEmpty()) {
+            //pool the root of the current node
+            Node<T> tNode = nodeQueue.poll();
+            System.out.println("Data: " + tNode.data);
+            //add the left child to the queue
+            if (tNode.left != null) {
+                nodeQueue.add(tNode.left);
+            }
+            //add the right child to the queue
+            if (tNode.right != null) {
+                nodeQueue.add(tNode.right);
+            }
+        }
 
     }
 
