@@ -2,6 +2,7 @@ package com.practice.datastructures;
 
 import com.practice.datastructures.graphs.Edge;
 import com.practice.datastructures.graphs.GraphAdjacency;
+import com.practice.datastructures.graphs.GraphTraversal;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +48,21 @@ public class Main {
         GraphAdjacency graphAdjacency = new GraphAdjacency(edges);
 
         //print the graph as an adjacency list
-        GraphAdjacency.printGraph(graphAdjacency);
+        //  GraphAdjacency.printGraph(graphAdjacency);
+        GraphTraversal g = new GraphTraversal(5);
+
+        //create a graph object and add edges to it
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(0, 3);
+        g.addEdge(1, 2);
+        g.addEdge(2, 4);
+
+
+        //print the DFS Traversal sequence
+        System.out.println("Depth First Traversal for given graph"+
+                "(with 0 as starting vertex)");
+        g.DFS(0);
     }
 
     ;
