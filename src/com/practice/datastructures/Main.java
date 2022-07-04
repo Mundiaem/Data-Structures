@@ -5,8 +5,12 @@ import com.practice.datastructures.calls.Value;
 import com.practice.datastructures.search.BinarySearch;
 import com.practice.datastructures.tree.avl.AvlTree;
 import com.practice.datastructures.tree.binarytree.BinaryTree;
+import com.practice.datastructures.graphs.Edge;
+import com.practice.datastructures.graphs.GraphAdjacency;
+import com.practice.datastructures.graphs.GraphTraversal;
 
 import java.util.Arrays;
+import java.util.List;
 
 //https://www.javatpoint.com/collections-in-java
 //https://www.scaler.com/topics/data-structures/avl-tree/#balance-factor
@@ -29,6 +33,7 @@ public class Main {
          * int helps in storing integer value into memory.
          * Integer helps in converting int into object and to convert an object into int as per requirement.*/
 //        Integer[] arr = {4, 5, 3, 6, 7, 8, 9, 12, 23, 34, 56, 78, 90, 20, 13, 14, 15, 16, 17, 21};
+        //  Integer[] arr = {4, 5, 3, 6, 7, 8, 9, 12, 23, 34, 56, 78, 90, 20, 13, 14, 15, 16, 17, 21};
 //        BinaryTree<Integer> binaryTree = new BinaryTree<Integer>();
 //        binaryTree.constructBST(arr);
 //        System.out.println("-------- Inorder transversal---------");
@@ -39,6 +44,8 @@ public class Main {
 //        binaryTree.postorderTransversal(binaryTree.getRoot());
 //        System.out.println(" --------- LevelOrder transversal ------------- ");
 //        binaryTree.levelOrderTransversal(binaryTree.getRoot());
+//        System.out.cprintln(" --------- PostOrder transversal ------------- ");
+//        binaryTree.postorderTransversal(binaryTree.getRoot());
 
 
 //        int x = 3, l = 0, h = arr.length;
@@ -46,6 +53,27 @@ public class Main {
 //        BinarySearch binarySearch= new BinarySearch();
 //        System.out.println(binarySearch.binarySearch(arr, x, l, h));
 //        System.out.println(arr[binarySearch.binarySearch(arr, x, l, h)]);;
+        graph();
+    }
+
+    private static void graph() {
+        // define edges of the graph
+        List<Edge> edges = Arrays.asList(new Edge(0, 1, 2), new Edge(0, 2, 4), new Edge(1, 2, 4), new Edge(2, 0, 5),
+                new Edge(2, 1, 4), new Edge(3, 1, 3), new Edge(4, 5, 1),
+                new Edge(5, 4, 3));
+        // call graph class constructor to construct a graph
+        GraphAdjacency graphAdjacency = new GraphAdjacency(edges);
+
+        //print the graph as an adjacency list
+        //  GraphAdjacency.printGraph(graphAdjacency);
+        GraphTraversal g = new GraphTraversal(5);
+
+        //create a graph object and add edges to it
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(0, 3);
+        g.addEdge(1, 2);
+        g.addEdge(2, 4);
 
         AvlTree avlTree = new AvlTree();
         avlTree.node = avlTree.insert(avlTree.node, 10);
@@ -83,6 +111,10 @@ public class Main {
         */
         System.out.println("Preorder traversal" + " of constructed tree is : ");
         tree.pre_order(tree.node);
+        //print the DFS Traversal sequence
+        System.out.println("Depth First Traversal for given graph"+
+                "(with 0 as starting vertex)");
+        g.DFS(0);
     }
 
     ;
