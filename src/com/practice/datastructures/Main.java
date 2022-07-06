@@ -1,13 +1,7 @@
 package com.practice.datastructures;
 
-import com.practice.datastructures.arrays.ArrayPractice;
-import com.practice.datastructures.calls.Value;
-import com.practice.datastructures.search.BinarySearch;
-import com.practice.datastructures.tree.avl.AvlTree;
-import com.practice.datastructures.tree.binarytree.BinaryTree;
-import com.practice.datastructures.graphs.Edge;
-import com.practice.datastructures.graphs.GraphAdjacency;
-import com.practice.datastructures.graphs.GraphTraversal;
+
+import com.sun.javafx.geom.Edge;
 
 import java.util.Arrays;
 import java.util.List;
