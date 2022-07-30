@@ -4,7 +4,7 @@ package com.practice.datastructures.linkedList;
  * created with love by mundiaem
  * created on 05/07/2022
  * Time: 23:00
- * ⚡ '\u{1F60E}' - Data-Structures
+ * ⚡ '' - Data-Structures
  */
 //*
 // add(int index, E element)	This method Inserts the specified element at the specified position in this list.
@@ -49,11 +49,13 @@ package com.practice.datastructures.linkedList;
 //toArray(T[] a)	This method returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
 //toString()	This method returns a string containing all of the elements in this list in proper sequence (from first to the last element), each element is separated by commas and the String is enclosed in square brackets.*/
 public interface LinkedList<T> {
-    void addFirst(T e);
+    boolean isEmpty();
 
-    void addLast(T e);
+    void addFirst(T t);
 
-    void add(T e, int index);
+    void addLast(T t);
+
+    void add(T t, T target);
 
     boolean pop();
 
@@ -61,7 +63,7 @@ public interface LinkedList<T> {
 
     T get(int index);
 
-    void remove(T e);
+    void remove(T t);
 
     void remove(int index);
 
@@ -74,9 +76,13 @@ public interface LinkedList<T> {
     void deleteLast();
 
     void delete();
+
     int size();
 
-    void set(int index, T element);
+    void set(int index, T t);
 
+    Node<T> search(T target);
+
+    void display();
 
 }

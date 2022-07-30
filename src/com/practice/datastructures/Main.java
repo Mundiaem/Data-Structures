@@ -1,7 +1,12 @@
 package com.practice.datastructures;
 
 
-import com.sun.javafx.geom.Edge;
+import com.practice.datastructures.graphs.Edge;
+import com.practice.datastructures.graphs.GraphAdjacency;
+import com.practice.datastructures.graphs.GraphTraversal;
+import com.practice.datastructures.linkedList.SinglyLinkedList;
+import com.practice.datastructures.myQueue.MyQueue;
+import com.practice.datastructures.tree.avl.AvlTree;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,7 +52,32 @@ public class Main {
 //        BinarySearch binarySearch= new BinarySearch();
 //        System.out.println(binarySearch.binarySearch(arr, x, l, h));
 //        System.out.println(arr[binarySearch.binarySearch(arr, x, l, h)]);;
-        graph();
+        // graph();
+
+//        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
+//        linkedList.addFirst(10);
+//        linkedList.addLast(20);
+//        linkedList.add(21, 10);
+//        linkedList.add(22, 10);
+//        linkedList.add(22, 12);
+//
+//        linkedList.display();
+//        System.out.println(String.format("Search : " + linkedList.search(20)));
+
+        MyQueue q = new MyQueue();
+        q.enQueue(5);
+        q.enQueue(3);
+        if (q.isEmpty() == false) {
+            System.out.println(q.Front());
+        }
+        q.deQueue();
+        if (q.isEmpty() == false) {
+            System.out.println(q.Front());
+        }
+        q.deQueue();
+        if (q.isEmpty() == false) {
+            System.out.println(q.Front());
+        }
     }
 
     private static void graph() {
@@ -106,7 +136,7 @@ public class Main {
         System.out.println("Preorder traversal" + " of constructed tree is : ");
         tree.pre_order(tree.node);
         //print the DFS Traversal sequence
-        System.out.println("Depth First Traversal for given graph"+
+        System.out.println("Depth First Traversal for given graph" +
                 "(with 0 as starting vertex)");
         g.DFS(0);
     }
