@@ -4,6 +4,7 @@ package com.practice.datastructures;
 import com.practice.datastructures.graphs.Edge;
 import com.practice.datastructures.graphs.GraphAdjacency;
 import com.practice.datastructures.graphs.GraphTraversal;
+import com.practice.datastructures.heap.MyHeap;
 import com.practice.datastructures.linkedList.SinglyLinkedList;
 import com.practice.datastructures.myQueue.MyQueue;
 import com.practice.datastructures.tree.avl.AvlTree;
@@ -78,6 +79,9 @@ public class Main {
         if (q.isEmpty() == false) {
             System.out.println(q.Front());
         }
+        MyHeap.heapImplementation();
+        
+        
     }
 
     private static void graph() {
