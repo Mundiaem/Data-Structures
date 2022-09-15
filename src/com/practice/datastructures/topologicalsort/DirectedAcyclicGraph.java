@@ -2,7 +2,16 @@ package com.practice.datastructures.topologicalsort;
 
 import java.util.*;
 import java.util.function.Consumer;
-
+/*
+* https://www.baeldung.com/java-depth-first-search
+* https://dolphinscheduler.apache.org/en-us/blog/DAG.html
+* https://github.com/dineshappavoo/DirectedAcyclicGraph/blob/master/src/dagshortestpath/DAGShortestPath.java
+* https://www.sanfoundry.com/java-program-check-whether-graph-dag/
+* https://www.geeksforgeeks.org/how-to-generate-a-random-directed-acyclic-graph-for-a-given-number-of-edges-in-java/
+* https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/tutorial/
+* https://www.gatevidyalay.com/topological-sort-topological-sorting/
+*
+* */
 public class DirectedAcyclicGraph<T> {
 
 	private Map<T,Node<T>> nodes;
