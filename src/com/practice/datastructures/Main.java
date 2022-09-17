@@ -7,6 +7,7 @@ import com.practice.datastructures.graphs.GraphTraversal;
 import com.practice.datastructures.heap.MyHeap;
 import com.practice.datastructures.linkedList.SinglyLinkedList;
 import com.practice.datastructures.myQueue.MyQueue;
+import com.practice.datastructures.topologicalsort.TopologicalSort;
 import com.practice.datastructures.tree.avl.AvlTree;
 
 import java.util.Arrays;
@@ -65,22 +66,22 @@ public class Main {
 //        linkedList.display();
 //        System.out.println(String.format("Search : " + linkedList.search(20)));
 
-        MyQueue q = new MyQueue();
-        q.enQueue(5);
-        q.enQueue(3);
-        if (q.isEmpty() == false) {
-            System.out.println(q.Front());
-        }
-        q.deQueue();
-        if (q.isEmpty() == false) {
-            System.out.println(q.Front());
-        }
-        q.deQueue();
-        if (q.isEmpty() == false) {
-            System.out.println(q.Front());
-        }
-        MyHeap.heapImplementation();
-        
+//        MyQueue q = new MyQueue();
+//        q.enQueue(5);
+//        q.enQueue(3);
+//        if (q.isEmpty() == false) {
+//            System.out.println(q.Front());
+//        }
+//        q.deQueue();
+//        if (q.isEmpty() == false) {
+//            System.out.println(q.Front());
+//        }
+//        q.deQueue();
+//        if (q.isEmpty() == false) {
+//            System.out.println(q.Front());
+//        }
+//        MyHeap.heapImplementation();
+        TopologicalSort.implTopologicalSort();
         
     }
 
