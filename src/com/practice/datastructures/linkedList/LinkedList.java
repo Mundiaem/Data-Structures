@@ -85,4 +85,6 @@ public interface LinkedList<T> {
 
     void display();
 
+    Node<T> middle(Node<T> tNode);
+
 }

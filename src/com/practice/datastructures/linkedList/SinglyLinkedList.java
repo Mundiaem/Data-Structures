@@ -129,4 +129,9 @@ public class SinglyLinkedList<T extends Comparable<T>> implements LinkedList<T> 
             curr = curr.next;
         }
     }
+
+    @Override
+    public Node<T> middle(Node<T> tNode) {
+        return null;
+    }
 }
