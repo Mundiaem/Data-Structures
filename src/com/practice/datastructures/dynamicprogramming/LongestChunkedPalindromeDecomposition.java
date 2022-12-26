@@ -41,4 +41,11 @@ Constraints:
 1 <= text.length <= 1000
 text consists only of lowercase English characters.
     * */
+    public static void main(String[] args) {
+
+    }
+
+    private static String lPS(String s){
+        return "";
+    }
 }
