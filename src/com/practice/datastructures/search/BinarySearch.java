@@ -1,9 +1,11 @@
 package com.practice.datastructures.search;
 
+import java.util.Arrays;
+
 public class BinarySearch {
 
 
-    public int binarySearch(int[] arr, int x, int l, int h) {
+    public static int binarySearch(int[] arr, int x, int l, int h) {
 
         /* Algorithm
         * - ignore the half of the elements
@@ -32,5 +34,11 @@ public class BinarySearch {
 
         }
         return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1,3,4,5,6,8,31,20,45,64,2,30,21};
+        Arrays.sort(arr);
+        System.out.println(binarySearch(arr, 30,0, arr.length));
     }
 }
