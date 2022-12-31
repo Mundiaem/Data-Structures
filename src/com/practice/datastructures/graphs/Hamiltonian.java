@@ -7,6 +7,6 @@ package com.practice.datastructures.graphs;
  * ⚡  - Data-Structures
  */
 //https://www.techiedelight.com/print-all-hamiltonian-path-present-in-a-graph/
-
+//https://www.sanfoundry.com/java-program-hamiltonian-cycle-algorithm/
 public class Hamiltonian {
 }
