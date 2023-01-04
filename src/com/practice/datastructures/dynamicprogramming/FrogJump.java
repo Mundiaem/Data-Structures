@@ -7,6 +7,7 @@ import java.util.Arrays;
  * created on 31/12/2022
  * Time: 16:07
  * ⚡  - Data-Structures
+ * https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/description/
  */
 
 public class FrogJump {
@@ -25,6 +26,19 @@ public class FrogJump {
     }
 
     static int frogJump(int n, int[] heights) {
+        int[] dp = new int[n];
+        Arrays.fill(dp, 0);
+//        return f(n - 1, heights, dp);
+        for (int i=1; i<n; i++){
+            int fs=dp[i-1]+Math.abs(heights[i]- heights[i-1]);
+            int ss =Integer.MAX_VALUE;
+            if(i>1) ss=dp[i-2]+Math.abs(heights[i]-heights[i-2]);
+            dp[i] =Math.min(fs,ss);
+        }
+        return dp[n-1];
+    }
+
+    static int frogTabulatedJump(int n, int[] heights) {
         int[] dp = new int[n];
         Arrays.fill(dp, 0);
 //        return f(n - 1, heights, dp);
