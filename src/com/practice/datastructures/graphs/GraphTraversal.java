@@ -30,7 +30,7 @@ public class GraphTraversal {
     }
 
     // helper function for DFS technique
-    void DFS_helper(int v, boolean visited[]) {
+    void DFS_helper(int v, boolean[] visited) {
         //current node is visited
         visited[v] = true;
         System.out.print(v + " ");
@@ -47,7 +47,7 @@ public class GraphTraversal {
 
     public void DFS(int v) {
         //initially none of the vertices are visited
-        boolean visited[] = new boolean[vertices];
+        boolean[] visited = new boolean[vertices];
         DFS_helper(v, visited);
     }
 }
