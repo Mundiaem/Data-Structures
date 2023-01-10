@@ -49,4 +49,8 @@ public class NumberOfProvinces {
         }
         return cnt;
     }
+
+    public static void main(String[] args) {
+
+    }
 }
