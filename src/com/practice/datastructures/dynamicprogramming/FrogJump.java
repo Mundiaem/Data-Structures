@@ -8,6 +8,7 @@ import java.util.Arrays;
  * Time: 16:07
  * ⚡  - Data-Structures
  * https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/description/
+ * Adjacent
  */
 
 public class FrogJump {
