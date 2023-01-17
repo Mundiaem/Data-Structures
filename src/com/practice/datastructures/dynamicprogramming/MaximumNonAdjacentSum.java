@@ -89,6 +89,25 @@ public class MaximumNonAdjacentSum {
         int[] dp= new int[arr.length];
         Arrays.fill(dp, -1);
         System.out.println(maximumNonAdjacentSum(arr, dp));
+        System.out.println(maximumNonAdjacentSumOpt(arr));
 
     }
+    //space optimization
+    private static int maximumNonAdjacentSumOpt(int [] arr){
+        int n = arr.length;
+        int prev= arr[0];
+        int prev2 =0;
+        for(int i=1; i<n;i++){
+            int take = arr[i];
+            if(i>1) take +=prev2;
+            int notTake=0+ prev;
+            int curi= Math.max(take, notTake);
+            prev2 = prev;
+            prev= curi;
+        }
+        return prev;
+    }
+
+
+
 }
