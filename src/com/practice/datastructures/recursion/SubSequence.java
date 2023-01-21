@@ -1,6 +1,8 @@
 package com.practice.datastructures.recursion;
 import java.io.*;
 import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * created with love by mundiaem
  * created on 30/11/2022
@@ -21,6 +23,8 @@ public class SubSequence {
     public static void printSubsequence(int[] arr, int indx, ArrayList<Integer> ds){
         // base case
         if(indx==arr.length){
+
+
             if(ds.size()>0){
                 System.out.println(ds);
             }
