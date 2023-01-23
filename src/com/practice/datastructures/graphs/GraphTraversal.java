@@ -12,6 +12,9 @@ import java.util.LinkedList;
 //DFS and BFS
 // DFS Technique for undirected graph
 public class GraphTraversal {
+    public static void main(String[] args) {
+
+    }
     private int vertices;
     //adjacency list declaration
     private LinkedList<Integer> adj_list[];

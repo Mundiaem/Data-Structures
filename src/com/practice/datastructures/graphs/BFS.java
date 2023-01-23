@@ -19,12 +19,12 @@ public class BFS {
     * */
 
     public static void main(String[] args) {
-      List<List<Integer>> adjList=  createGraph();
+        ArrayList<ArrayList<Integer>> adjList=  createGraph(5);
 
         System.out.println(bfsOfGraph(adjList.size()+1, adjList));
     }
 
-    private static ArrayList<Integer> bfsOfGraph(int V, List<List<Integer>>adj){
+    private static ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>>adj){
         ArrayList<Integer> bfs= new ArrayList<>();
         boolean[] visited = new boolean[V];
         Queue<Integer> q = new LinkedList<>();
