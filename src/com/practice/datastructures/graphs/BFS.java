@@ -19,7 +19,9 @@ public class BFS {
     * */
 
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> adjList=  createGraph(5);
+
+
+        ArrayList<ArrayList<Integer>> adjList=  createGraph(15);
 
         System.out.println(bfsOfGraph(adjList.size()+1, adjList));
     }

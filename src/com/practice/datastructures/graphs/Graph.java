@@ -17,9 +17,24 @@ public class Graph {
             adjList.add(i, new ArrayList<>());
         }
         addEdge(adjList, 0, 1);
-        addEdge(adjList, 0, 2);
-        addEdge(adjList, 0, 3);
+
         addEdge(adjList, 1, 2);
+        addEdge(adjList, 1, 3);
+        addEdge(adjList, 2, 1);
+        addEdge(adjList, 2, 5);
+        addEdge(adjList, 3, 1);
+        addEdge(adjList, 3, 4);
+        addEdge(adjList, 3, 6);
+        addEdge(adjList, 4, 3);
+        addEdge(adjList, 5, 2);
+        addEdge(adjList, 5, 7);
+        addEdge(adjList, 6, 3);
+        addEdge(adjList, 6, 7);
+        addEdge(adjList, 7, 5);
+        addEdge(adjList, 5, 6);
+
+
+
         return adjList;
 
     }
