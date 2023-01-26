@@ -4,6 +4,46 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
 
+class UsingSet {
+    /**
+     * Set - store everything in ascending order
+     * dist= [0,4,4,7,5,10]
+     * set = [{#0,0},{#4,2},{#4,1},{*10,5}, {8,5},{7,3},{#5,4},]
+     * erasing require - O(logn)
+     * There are no super method of either set or PQ each has it own adva
+     */
+    static int[] dijkstra(int V, List<List<List<Integer>>> adj, int S) {
+        Set<PairDijkstra> set = new HashSet<>();
+        int[] dist = new int[V];
+        set.add(new PairDijkstra(0, S));
+        for (int i = 0; i < V; i++) {
+            dist[i] = (int) 1e9;
+        }
+        dist[S] = 0;
+
+        while (!set.isEmpty()) {
+            Optional<PairDijkstra> pairDijkstra = set.stream().findFirst();
+            int dis = pairDijkstra.get().distance;
+            int node = pairDijkstra.get().node;
+            //System.out.println("Distance :"+dis+ " node: "+ node);
+            set.remove(pairDijkstra.get());// O(logn)
+            for (int i = 0; i < adj.get(node).size(); i++) {
+                int adjWeight = adj.get(node).get(i).get(1);
+                int adjNode = adj.get(node).get(i).get(0);
+                if (dis + adjWeight < dist[adjNode]) {
+                    dist[adjNode] = dis + adjWeight;
+                    set.add(new PairDijkstra(dist[adjNode], adjNode));
+                }
+            }
+
+        }
+
+        return dist;
+    }
+
+
+}
+
 class UsingPriorityQueue {
     /**
      * dist [] = {0,4,4,7,5,10,8}
@@ -15,13 +55,13 @@ class UsingPriorityQueue {
 
     static int[] dijkstra(int V, List<List<List<Integer>>> adj, int S) {
         //min-heap
-        PriorityQueue<PairPQ> pq = new PriorityQueue<>((x, y) -> x.distance - y.distance);
+        PriorityQueue<PairDijkstra> pq = new PriorityQueue<>((x, y) -> x.distance - y.distance);
         int[] dist = new int[V];
         for (int i = 0; i < V; i++) {
             dist[i] = (int) 1e9;
         }
         dist[S] = 0;
-        pq.add(new PairPQ(0, 5));
+        pq.add(new PairDijkstra(0, S));
         while (pq.size() != 0) {
             int dis = pq.peek().distance;
             int node = pq.peek().node;
@@ -32,7 +72,7 @@ class UsingPriorityQueue {
                 int adjNode = adj.get(node).get(i).get(0);
                 if (dis + edgeWeight < dist[adjNode]) {
                     dist[adjNode] = dis + edgeWeight;
-                    pq.add(new PairPQ(dist[adjNode], adjNode));
+                    pq.add(new PairDijkstra(dist[adjNode], adjNode));
                 }
             }
         }
@@ -40,11 +80,11 @@ class UsingPriorityQueue {
     }
 }
 
-class PairPQ {
+class PairDijkstra {
     int node;
     int distance;
 
-    public PairPQ(int _distance, int _node) {
+    public PairDijkstra(int _distance, int _node) {
         this.distance = _distance;
         this.node = _node;
     }
@@ -61,11 +101,8 @@ public class Dijkstra {
             for (int i = 0; i < V; i++) {
                 adj.add(i, new ArrayList<>());
             }
-
-
             while (in.hasNextInt()) {
                 List<Integer> list = new ArrayList<>();
-
                 list.add(in.nextInt());
                 list.add(in.nextInt());
                 list.add(in.nextInt());
@@ -75,6 +112,7 @@ public class Dijkstra {
             }
             System.out.println(adj.toString() + " ");
             System.out.println(" Ans to Dijkstra Algorithm Using Priority Queue : " + Arrays.toString(UsingPriorityQueue.dijkstra(V, adj, 0)));
+            System.out.println(" Ans to Dijkstra Algorithm Using Set : " + Arrays.toString(UsingSet.dijkstra(V, adj, 0)));
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
