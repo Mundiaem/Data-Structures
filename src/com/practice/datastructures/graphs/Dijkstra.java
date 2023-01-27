@@ -49,7 +49,30 @@ class UsingPriorityQueue {
      * dist [] = {0,4,4,7,5,10,8}
      * min Heap{ dist, node} =[{0,0},{4,1},{4,2}, {7,3}, {5,4}, {10,5}, {8,5}]
      * Time Complexity
-     * O(E log v)
+     * O(E log v) where E is the total number of edges and V is the total number of vertices
+     * while(!pq.isEmpty()) -> total number of Vertices
+     * {
+     *          * ds.node = top() -> log(heap size){
+     *                   *      * for (iterate adjacent list of nodes) -> number of edges of every node{
+     *                   //nodes V-1
+     *                       if(condition check){
+     *                           update dist
+     *                           push in PQ -O log(heap size)
+     *                       }
+     *                   }
+     *          }
+     * }
+     * O(V x (pop vertex from the heap size+
+     * no of edges on each vertex push into pQ)
+     * O(V x (log (heap size) +no of edges x log (heap size))
+     * O(V x (log (heap size) x (*ne (v-1) +1)
+     * O(V*V * log(*heap size))
+     * O(V^2 x log(heap size))
+     * O(V^2 x log(V^2)) => (V^2 -> E (total number of edges))
+     * O(V^2 x 2 log V)
+     * O(E x 2 x log V) = O( E log V)
+     *
+
      */
 
 
