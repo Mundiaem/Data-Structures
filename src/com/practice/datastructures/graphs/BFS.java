@@ -37,8 +37,8 @@ public class BFS {
             Integer node= q.poll();
             bfs.add(node);
             // Get all adjacent vertices of dequeued
-            //If a adjacent has not been visited
-            //visited and enqueue it
+            //If an adjacent has not been visited
+            //  and enqueue it
             for (Integer it: adj.get(node)){
                 if (!visited[it]){
                     visited[it]=true;

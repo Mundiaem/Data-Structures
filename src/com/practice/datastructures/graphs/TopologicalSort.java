@@ -1,7 +1,8 @@
 package com.practice.datastructures.graphs;
 
-import java.util.ArrayList;
-import java.util.Stack;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.*;
 
 /**
  * created with love by mundiaem
@@ -20,31 +21,71 @@ public class TopologicalSort {
 3 2
 0 2
         * */
-        System.out.println();
-    }
-    private static void dfs(int node, int[] visited, Stack<Integer> st, ArrayList<ArrayList<Integer>>adj){
-            visited[node]=1;
-            for (int it: adj.get(node)){
-                if(visited[it]==0){
-                    dfs(it, visited, st, adj);
+        List<List<Integer>> adj = new ArrayList<>();
+
+        try {
+            Scanner input = new Scanner(new FileReader("src/com/practice/datastructures/graphs/input-topo.txt"));
+            int V = input.nextInt();
+            int E = input.nextInt();
+            for (int i = 0; i <V ; i++) {
+                adj.add(i, new ArrayList<>());
+            }
+
+
+            while (input.hasNextLine()) {
+                String[] ad = input.nextLine().split(" ");
+                if (!ad[0].isEmpty()) {
+
+                        for (int i = 1; i < ad.length; i++) {
+                            adj.get(Integer.parseInt(ad[0])).add(Integer.parseInt(ad[i]));
+
+                    }
+
+
+
                 }
-                st.push(node);
-}
+
+
+            }
+            System.out.println(adj);
+            System.out.println(Arrays.toString(topoSort(V, adj)));
+            ;
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void dfs(int node, int[] visited, Stack<Integer> st, List<List<Integer>> adj) {
+        visited[node] = 1;
+
+        for (int it : adj.get(node)) {
+            System.out.println("it : " + it);
+
+            if (visited[it] == 0) {
+                dfs(it, visited, st, adj);
+            }
+            System.out.println("Node : " + node);
+            st.push(node);
+        }
 
     }
+
     // method to return list containing vertices in Topological order.
-    static int[] topoSort(int V, ArrayList<ArrayList<Integer>>adj){
+    static int[] topoSort(int V, List<List<Integer>> adj) {
         int[] visited = new int[V];
-        Stack<Integer> stack= new Stack<>();
-        for(int i=0; i<V; i++){
-            if(visited[i]==0){
-                dfs(i, visited, stack,adj);
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < V; i++) {
+            if (visited[i] == 0) {
+                System.out.println(" i " + i);
+                dfs(i, visited, stack, adj);
             }
         }
-        int [] ans= new int[V];
-        int i=0;
-        while (!stack.isEmpty()){
-            ans[i++]= stack.peek();
+        int[] ans = new int[V];
+        int i = 0;
+        while (!stack.isEmpty()) {
+
+            ans[i++] = stack.peek();
             stack.pop();
         }
         return ans;
