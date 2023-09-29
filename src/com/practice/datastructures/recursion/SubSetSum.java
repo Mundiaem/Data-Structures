@@ -2,6 +2,7 @@ package com.practice.datastructures.recursion;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * created with love by mundiaem
@@ -45,20 +46,24 @@ public class SubSetSum {
 
     }
 
-    private static void subsetSumsHelper(int index, int sum, ArrayList<Integer> arr, int N, ArrayList<Integer> sumSubset) {
+    private static void subsetSumsHelper(int index, int sum, ArrayList<Integer> arr, int N, ArrayList<Integer> sumSubset,List<List<Integer>>subset) {
     if (index==N){
         sumSubset.add(sum);
         return;
     }
     // pick the element
-        subsetSumsHelper(index+1, sum+arr.get(index), arr,N, sumSubset);
+        List<List<Integer>>set= new ArrayList<>();
+        set.add(new ArrayList<>(arr.get(index)));
+        subsetSumsHelper(index+1, sum+arr.get(index), arr,N, sumSubset, set);
     // Do-not pick the element
-        subsetSumsHelper(index+1, sum, arr,N, sumSubset);
+        subsetSumsHelper(index+1, sum, arr,N, sumSubset, subset);
     }
 
     private static ArrayList<Integer> subSetSums(ArrayList<Integer> arr, int N) {
         ArrayList<Integer> sumSubSet = new ArrayList<>();
-        subsetSumsHelper(0, 0, arr, N, sumSubSet);
+        List<List<Integer>>subset= new ArrayList<>();
+        subsetSumsHelper(0, 0, arr, N, sumSubSet, subset);
+        System.out.println(subset);
         Collections.sort(sumSubSet);
         return sumSubSet;
     }

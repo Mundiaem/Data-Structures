@@ -3,6 +3,7 @@ package com.practice.datastructures.graphs;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * created with love by mundiaem
@@ -23,49 +24,61 @@ public class TopologicalSort {
         * */
         List<List<Integer>> adj = new ArrayList<>();
 
-        try {
-            Scanner input = new Scanner(new FileReader("src/com/practice/datastructures/graphs/input-topo.txt"));
-            int V = input.nextInt();
-            int E = input.nextInt();
-            for (int i = 0; i <V ; i++) {
+//        try {
+//            Scanner input = new Scanner(new FileReader("src/com/practice/datastructures/graphs/input-topo.txt"));
+//            int V = input.nextInt();
+//            int E = input.nextInt();
+//            for (int i = 0; i <V ; i++) {
+//                adj.add(i, new ArrayList<>());
+//            }
+//
+//
+//            while (input.hasNextLine()) {
+//                String[] ad = input.nextLine().split(" ");
+//                if (!ad[0].isEmpty()) {
+//
+//                        for (int i = 1; i < ad.length; i++) {
+//                            adj.get(Integer.parseInt(ad[0])).add(Integer.parseInt(ad[i]));
+//
+//                    }
+//
+//
+//
+//                }
+//
+//
+//            }
+//
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+        for (int i = 0; i <2 ; i++) {
                 adj.add(i, new ArrayList<>());
             }
 
+        int[][] course = {{1, 0}, {0, 1}};
+        for (int [] arr:course) {
+            Integer[] nosWrapped = Arrays.stream(arr).boxed()
+                    .toArray(Integer[]::new);
 
-            while (input.hasNextLine()) {
-                String[] ad = input.nextLine().split(" ");
-                if (!ad[0].isEmpty()) {
+            adj.add(new ArrayList<>(List.of(nosWrapped)));
 
-                        for (int i = 1; i < ad.length; i++) {
-                            adj.get(Integer.parseInt(ad[0])).add(Integer.parseInt(ad[i]));
-
-                    }
-
-
-
-                }
-
-
-            }
-            System.out.println(adj);
-            System.out.println(Arrays.toString(topoSort(V, adj)));
-            ;
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
+
+        System.out.println(Arrays.toString(topoSort(2, adj)));
     }
 
     private static void dfs(int node, int[] visited, Stack<Integer> st, List<List<Integer>> adj) {
         visited[node] = 1;
 
         for (int it : adj.get(node)) {
-            System.out.println("it : " + it);
+            // System.out.println("it : " + it);
 
             if (visited[it] == 0) {
                 dfs(it, visited, st, adj);
             }
-            System.out.println("Node : " + node);
+            // System.out.println("Node : " + node);
             st.push(node);
         }
 
@@ -77,7 +90,7 @@ public class TopologicalSort {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < V; i++) {
             if (visited[i] == 0) {
-                System.out.println(" i " + i);
+                // System.out.println(" i " + i);
                 dfs(i, visited, stack, adj);
             }
         }

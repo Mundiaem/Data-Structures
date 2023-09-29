@@ -1,5 +1,7 @@
 package com.practice.datastructures.sort;
 
+import java.util.Arrays;
+
 /*
 Working of Quicksort
 * 1. select the pivot element
@@ -17,23 +19,44 @@ f. finally, the pivot element is swapped with the second pointer
 Pivot elements are again chosen for the left and the right sub-parts separately, and step 2 is repeated
  */
 public class Quicksort {
+    public static void main(String[] args) {
+        int[] arr = {-1, -3, 4, 5, 6, 2, 4, 6, 7, 10, 23, 56, 45, 89, 90, 43};
+        quickSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+
+    }
+
+    private static void quickSort(int[] arr, int start, int end) {
+        if (start >= end) return;
+        int pivot = partition(arr, start, end);
+        quickSort(arr, start, pivot - 1);
+        quickSort(arr, pivot + 1, end);
+
+    }
 
     //method to find the partition position
-    static int partition(int arr[], int low, int high) {
-        //choose the rightmost element as pivot
+    static int partition(int[] arr, int low, int high) {
+        int index = low - 1;
         int pivot = arr[high];
 
-        // pointer for greater element
-        int i = (low - 1);
-
-        // traverse through all elements
-        // compare each element with the pivot
-        for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                // if element smaller than the pivot is found
+        for (int i = low; i < high; i++) {
+            if (arr[i] < pivot) {
+                index++;
+                int temp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = temp;
             }
         }
-        return 0;
+        index++;
+        int temp = arr[index];
+        arr[index] = arr[high];
+        arr[high] = temp;
+        return index;
+
 
     }
 

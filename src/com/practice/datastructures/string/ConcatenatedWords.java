@@ -30,4 +30,5 @@ package com.practice.datastructures.string;
  */
 
 public class ConcatenatedWords {
+   // NamingCompany.distinctNames()
 }
