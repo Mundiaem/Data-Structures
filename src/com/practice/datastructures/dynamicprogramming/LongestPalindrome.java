@@ -5,7 +5,7 @@ public class LongestPalindrome {
     private static int resultLength, resultStart;
 
     public static void main(String[] args) {
-        System.out.println(longestPalindrome("babad"));
+        System.out.println(longestPalindrome1("babad"));
         ;
     }
 

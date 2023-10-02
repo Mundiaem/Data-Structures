@@ -34,4 +34,28 @@ public class LongestSubsequenceString {
             * */
 
 
+    public static void main(String[] args) {
+        String text1 = "abc";
+        String text2 = "abc";
+        System.out.println(longestSubsequenceString(text1, text2));
+    }
+
+    private static int longestSubsequenceString(String s1, String s2) {
+        int ans = 0;
+        int i = 0, j = 0;
+        while (i < s1.length() && j < s2.length()) {
+            if (s1.charAt(i) == s2.charAt(j)) {
+                i++;
+                j++;
+                ans++;
+            }else i++;
+
+        }
+
+
+        return ans;
+
+    }
+
+
 }
