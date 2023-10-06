@@ -1,6 +1,7 @@
 package com.practice.datastructures.dynamicprogramming;
 
 //https://www.javatpoint.com/longest-common-subsequence
+//https://www.programiz.com/dsa/longest-common-subsequence
 public class LongestCommonSubsequence {
     public static void main(String[] args) {
 
