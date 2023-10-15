@@ -12,12 +12,12 @@ import java.util.List;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        int n=5;
+        int n=1;
 
         int [] dp= new int[n+1];
         Arrays.fill(dp,-1);
 
-        System.out.println(implFib(5,dp ));
+        System.out.println(implFib(n,dp ));
     }
     private static int implFib(int n, int[]  dp){
         if(n<=1){
