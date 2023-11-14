@@ -69,3 +69,4 @@ public class SubSetSum {
     }
 
 }
+https://itznihal.medium.com/top-50-dsa-coding-interview-numerical-questions-and-patterns-8d0d9b9625ff
