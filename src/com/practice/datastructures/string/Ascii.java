@@ -20,7 +20,7 @@ public class Ascii {
     }
 
     private static String longestString(int N) {
-        // Initialize a StringBuilder to build the resulting string.
+        // Initialize a StringBuilder tox build the resulting string.
         StringBuilder result = new StringBuilder();
 
 
