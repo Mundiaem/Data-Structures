@@ -14,7 +14,7 @@ public class SubArrays {
          * f(index, n, sub, subset);
          * }
          * */
-        int[] arr = {1,2,4};
+        int[] arr = {1,2,4,6,7,5,8,9};
         List<List<Integer>> subsets = subArrays(arr);
         System.out.println(subsets.toString());
         System.out.println(subsets.size());
@@ -31,7 +31,7 @@ public class SubArrays {
 
     private static void subs(int index, int N, int[] arr, List<Integer> sub, List<List<Integer>> subSets) {
         if (index == N) {
-//            System.out.println(sub.toString());
+          System.out.println(sub.toString());
             subSets.add(sub);
             return;
         }
@@ -41,6 +41,7 @@ public class SubArrays {
             subs(index + 1, N, arr, new ArrayList<>(sub), subSets);
              sub.remove(sub.size() - 1);
             //not pick
+        System.out.println(index);
             subs(index + 1, N, arr, new ArrayList<>(sub), subSets);
 
     }
