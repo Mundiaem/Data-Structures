@@ -19,7 +19,7 @@ public class FrogJump {
 
     static int f(int index, int[] heights, int[] dp) {
         if (index == 0) return 0;
-        if(dp[index]!=-1) return dp[index];
+        if (dp[index] != -1) return dp[index];
         int left = f(index - 1, heights, dp) + Math.abs(heights[index] - heights[index - 1]);
         int right = Integer.MAX_VALUE;
         if (index > 1) right = f(index - 2, heights, dp) + Math.abs(heights[index] - heights[index - 2]);
@@ -30,25 +30,25 @@ public class FrogJump {
         int[] dp = new int[n];
         Arrays.fill(dp, 0);
 //        return f(n - 1, heights, dp);
-        for (int i=1; i<n; i++){
-            int fs=dp[i-1]+Math.abs(heights[i]- heights[i-1]);
-            int ss =Integer.MAX_VALUE;
-            if(i>1) ss=dp[i-2]+Math.abs(heights[i]-heights[i-2]);
-            dp[i] =Math.min(fs,ss);
+        for (int i = 1; i < n; i++) {
+            int fs = dp[i - 1] + Math.abs(heights[i] - heights[i - 1]);
+            int ss = Integer.MAX_VALUE;
+            if (i > 1) ss = dp[i - 2] + Math.abs(heights[i] - heights[i - 2]);
+            dp[i] = Math.min(fs, ss);
         }
-        return dp[n-1];
+        return dp[n - 1];
     }
 
     static int frogTabulatedJump(int n, int[] heights) {
         int[] dp = new int[n];
         Arrays.fill(dp, 0);
 //        return f(n - 1, heights, dp);
-        for (int i=1; i<n; i++){
-            int fs=dp[i-1]+Math.abs(heights[i]- heights[i-1]);
-            int ss =Integer.MAX_VALUE;
-            if(i>1) ss=dp[i-2]+Math.abs(heights[i]-heights[i-2]);
-            dp[i] =Math.min(fs,ss);
+        for (int i = 1; i < n; i++) {
+            int fs = dp[i - 1] + Math.abs(heights[i] - heights[i - 1]);
+            int ss = Integer.MAX_VALUE;
+            if (i > 1) ss = dp[i - 2] + Math.abs(heights[i] - heights[i - 2]);
+            dp[i] = Math.min(fs, ss);
         }
-        return dp[n-1];
+        return dp[n - 1];
     }
 }

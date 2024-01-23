@@ -2,7 +2,20 @@ package problemsolving;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+*
+* 1. Rotate Array: https://lnkd.in/gmNmR_GM
 
+2. Longest Common Subsequence: https://lnkd.in/gn_niUMG
+
+3. Permutations: https://lnkd.in/gkfWBuk8
+
+4. Two Sum: https://lnkd.in/gwqAHr8h
+
+5. Merge Intervals: https://lnkd.in/gbFQ-BX9
+
+*
+* */
 public class MinimumBribes {
     public static void minimumBribes(List<Integer> q) {
         // Write your code here
