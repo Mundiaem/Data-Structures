@@ -54,6 +54,7 @@ public class SubSetSum {
     // pick the element
         List<List<Integer>>set= new ArrayList<>();
         set.add(new ArrayList<>(arr.get(index)));
+
         subsetSumsHelper(index+1, sum+arr.get(index), arr,N, sumSubset, set);
     // Do-not pick the element
         subsetSumsHelper(index+1, sum, arr,N, sumSubset, subset);

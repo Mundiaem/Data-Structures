@@ -41,19 +41,22 @@ Space Complexity:  O(2^n * k) to store every subset of average length k.
 * */
 
     private static void func(int index, int[] arr, List<Integer> ds, Set<String> res) {
-        if(index==arr.length){
-            Collections.sort(ds);
-            System.out.println(" ds index==arr.length "+ ds);
-            res.add(ds.toString());
-            System.out.println(" res "+ res);
+        if(index==arr.length ){
+            if(!ds.isEmpty()){
+                Collections.sort(ds);
+               // System.out.println(" ds index==arr.length "+ ds);
+                res.add(ds.toString());
+               // System.out.println(" res "+ res);
+            }
+
             return;
         }
 
         ds.add(arr[index]);
-        System.out.println(" After add "+ ds);
+       // System.out.println(" After add "+ ds);
         func(index+1, arr, ds, res);
         ds.remove(ds.size()-1);
-        System.out.println(" After remove "+ ds);
+       // System.out.println(" After remove "+ ds);
         func(index+1, arr, ds, res);
     }
 

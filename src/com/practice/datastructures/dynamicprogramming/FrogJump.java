@@ -51,4 +51,9 @@ public class FrogJump {
         }
         return dp[n - 1];
     }
+
+    static int frogJumpWithKDistance(int n, int[] distance) {
+
+    }
+
 }
