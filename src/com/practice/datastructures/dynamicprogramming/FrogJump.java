@@ -7,7 +7,7 @@ import java.util.Arrays;
  * created on 31/12/2022
  * Time: 16:07
  * ⚡  - Data-Structures
- * https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/description/
+ * <a href="https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/description/">...</a>
  * Adjacent
  */
 
@@ -53,7 +53,7 @@ public class FrogJump {
     }
 
     static int frogJumpWithKDistance(int n, int[] distance) {
-
+        return 0;
     }
 
 }

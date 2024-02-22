@@ -106,7 +106,7 @@ public class NumberOfComponents {
 
 }
 
-class Pair {
+ class Pair {
     int first;
     int second;
 
